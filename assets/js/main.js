@@ -30,7 +30,7 @@ navLink.forEach(n => n.addEventListener('click', linkAction))
 
 
 /*=============== SWIPER PROJECTS ===============*/
- let swiperproject = new Swiper('.project__container', {
+ let swiperproject = new Swiper('.projects__container', {
         loop:true,
         spaceBetween:24,
 
@@ -41,12 +41,15 @@ navLink.forEach(n => n.addEventListener('click', linkAction))
         pagination: {
           el: '.swiper-pagination',
         },
+
         breakpoints: {
           1200: {
             slidesPerView: 2,
             spaceBetween: 5,
           },
-          
+          mousewheel:true,
+          Keyboard:true,
+
         },
       });
        
@@ -189,15 +192,18 @@ const scrollHeader = () => {
 window.addEventListener('scroll', scrollHeader)
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
-// const sr = ScrollReveal({
-//     origin:'top',
-//     distance:'60px',
-//     duration:2500,
-//     display:400,
-//     rest: true   /*Animation Repeat*/
+const sr = ScrollReveal({
+    origin:'top',
+    distance:'60px',
+    duration:2500,
+    display:400,
+    rest: true   /*Animation Repeat*/
 
 
-// })
-// sr.reveal(`.home__data`)
-// sr.reveal(`.home__info div`, )
+})
+sr.reveal(`.home__data, .projects__container , .testimonial__container , .footer__container`)
+sr.reveal(`.home__info div`, {delay:600, origin:'bottom', interval :100})
+sr.reveal(`.skills_content:nth-child(1) , .contact__content:nth-child(1)`, { origin:'left'})
+sr.reveal(`.skills_content:nth-child(2) ,.contact__content:nth-child(2)`, { origin:'right'})
+sr.reveal(`.qualification__content, .services__card`,{ interval:100})
 
